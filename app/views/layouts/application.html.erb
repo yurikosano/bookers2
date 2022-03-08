@@ -9,8 +9,41 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    <%= link_to "Sign up", new_user_registration_path %>
-    <%= link_to "Log in", new_user_session_path %>
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expanding-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand text-left" href="/">Bookers</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+              </li>
+              <li class="nav-item">
+                <a href="/" class="fas fa-home nav-link text-light">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="/homes/about" class="fas fa-link nav-link text-light">About</a>
+              </li>          
+              <li class="nav-item">
+                <a href="/users/sign_up" class="fas fa-user-plus nav-link text-light">Sign up</a>
+              </li>
+              <li class="nav-item">
+                <a href="/users/sign_in" class="fas fa-sign-in-alt nav-link text-light">Log in</a>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <%= yield %>
+    <footer>
+      <br />
+      <p class="text-center">CopyRight Infratop.inc</p>
+    </footer>
   </body>
 </html>
