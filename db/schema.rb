@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_06_034539) do
+ActiveRecord::Schema.define(version: 2022_03_10_052516) do
 
-  create_table "books", force: :cascade do |t|
+create_table "books", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
     t.text "opinion"
